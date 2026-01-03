@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO por perfil -->
+  <title>catering</title>
+<meta name="description" content="escenografias">
+<meta name="keywords" content="desarrollo web">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="catering">
+<meta property="og:description" content="escenografias">
+<meta property="og:image" content="./assets/images/">
+<meta property="og:type" content="profile">
+
+  <!-- 🎨 Theme variables -->
+<style>
+  :root {
+    --bg-color: #bbf7dd;
+    --text-color: #111111;
+    --muted-text-color: #333333;
+    --button-bg: #000000;
+    --button-text: #ffffff;
+    --button-hover: #242424;
+    --accent-color: #38bdf8;
+  }
+</style>
+
+
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Google Analytics (opcional) -->
+  
+
+  <!-- Meta Pixel (opcional) -->
+  
+</head>
+
+
+<body>
+  <div id="preloader"><img src="./assets/images/comida_cargando.gif" alt="Cargando…" /></div>
+
+
+  <main class="container">
+    <section class="profile">
+      <div class="avatar-wrapper">
+        <img class="avatar" src="./assets/images/avatar_tomate.jpg" alt="Daniela Espinosa" />
+        <img class="thumb" src="./assets/images/logo_2023_tomate.png" alt="" />
+      </div>
+
+      <h1>Daniela Espinosa</h1>
+      <h2>Food lover</h2>
+      <p class="description">Servicios de Catering, display y digital assets para tu negocio o emprendimiento.</p>
+    </section>
+
+    <section class="links">
+      <a class="link" href="https://lasanadomicilio.com/" target="_blank" rel="noopener">quiero comprar charolas de comida</a>
+
+    </section>
+  </main>
+
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.opacity = "0";
+        setTimeout(() => preloader.remove(), 300);
+      }
+    });
+  </script>
+</body>
