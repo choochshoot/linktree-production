@@ -1,0 +1,11 @@
+# Ignorar basura del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar Python
+__pycache__/
+*.pyc
+
+# ⚠️ NO ignores assets ni carpetas de perfiles
+
+
