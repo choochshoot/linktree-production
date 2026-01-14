@@ -37,30 +37,33 @@
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- 📊 profile_view event (NO rompe page_view) -->
+<!-- 📊 profile_view event (disparado después de load) -->
 <script>
-  const params = new URLSearchParams(window.location.search);
+  window.addEventListener("load", function () {
+    const params = new URLSearchParams(window.location.search);
 
-  window.profileContext = {
-    slug: window.profileData.slug,
-    name: window.profileData.name,
-    source: params.get("src") || "direct",
-    card: params.get("card"),
-    event: params.get("event"),
-    location: params.get("location")
-  };
+    window.profileContext = {
+      slug: window.profileData.slug,
+      name: window.profileData.name,
+      source: params.get("src") || "direct",
+      card: params.get("card"),
+      event: params.get("event"),
+      location: params.get("location")
+    };
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "profile_view",
-    profile_slug: profileContext.slug,
-    profile_name: profileContext.name,
-    profile_source: profileContext.source,
-    profile_card: profileContext.card,
-    profile_event: profileContext.event,
-    profile_location: profileContext.location
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "profile_view",
+      profile_slug: profileContext.slug,
+      profile_name: profileContext.name,
+      profile_source: profileContext.source,
+      profile_card: profileContext.card,
+      profile_event: profileContext.event,
+      profile_location: profileContext.location
+    });
   });
 </script>
+
 
 
   <!-- 🎨 Theme variables -->
