@@ -40,29 +40,22 @@
 <!-- 📊 profile_view event (disparado después de load) -->
 <script>
   window.addEventListener("load", function () {
-    const params = new URLSearchParams(window.location.search);
+    if (!window.profileData || !window.profileData.slug) return;
 
-    window.profileContext = {
-      slug: window.profileData.slug,
-      name: window.profileData.name,
-      source: params.get("src") || "direct",
-      card: params.get("card"),
-      event: params.get("event"),
-      location: params.get("location")
-    };
+    const params = new URLSearchParams(window.location.search);
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "profile_view",
-      profile_slug: profileContext.slug,
-      profile_name: profileContext.name,
-      profile_source: profileContext.source,
-      profile_card: profileContext.card,
-      profile_event: profileContext.event,
-      profile_location: profileContext.location
+      profile_slug: window.profileData.slug,
+      profile_name: window.profileData.name,
+      profile_source: params.get("src") || "direct",
+      profile_card: params.get("card") || "profile",
+      profile_location: window.location.pathname
     });
   });
 </script>
+<!-- End profile_view event -->
 
 
 
