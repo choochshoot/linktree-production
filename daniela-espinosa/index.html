@@ -14,6 +14,15 @@
 <meta property="og:image" content="./assets/images/">
 <meta property="og:type" content="profile">
 
+  <!-- exponer perfil al navegador -->
+<script>
+  window.profileData = {
+    slug: "daniela-espinosa",
+    name: "Daniela Espinosa"
+  };
+</script>
+
+
   <!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){
@@ -29,6 +38,25 @@
 </script>
 <!-- End Google Tag Manager -->
 
+<!-- 📊 profile_view event (disparado después de load) -->
+<script>
+  window.addEventListener("load", function () {
+    if (!window.profileData || !window.profileData.slug) return;
+
+    const params = new URLSearchParams(window.location.search);
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "profile_view",
+      profile_slug: window.profileData.slug,
+      profile_name: window.profileData.name,
+      profile_source: params.get("src") || "direct",
+      profile_card: params.get("card") || "profile",
+      profile_location: window.location.pathname
+    });
+  });
+</script>
+<!-- End profile_view event -->
 
 
 
@@ -102,12 +130,20 @@ Creación Food y systems web page 🛒</p>
   </main>
 
   <script>
-    window.addEventListener("load", function () {
-      const preloader = document.getElementById("preloader");
-      if (preloader) {
-        preloader.style.opacity = "0";
-        setTimeout(() => preloader.remove(), 300);
-      }
-    });
-  </script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (!preloader) return;
+
+    // ⏳ 1 segundo extra de branding
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+
+      setTimeout(() => {
+        preloader.remove();
+      }, 300);
+
+    }, 1000); // 1000ms = 1s extra
+  });
+</script>
+
 </body>

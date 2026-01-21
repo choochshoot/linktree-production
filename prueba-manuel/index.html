@@ -13,13 +13,59 @@
 <meta property="og:image" content="./assets/images/">
 <meta property="og:type" content="profile">
 
+  <!-- exponer perfil al navegador -->
+<script>
+  window.profileData = {
+    slug: "prueba-manuel",
+    name: "Manuel A. Pulido"
+  };
+</script>
+
+
+  <!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NTNSNWW2'+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NTNSNWW2');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- 📊 profile_view event (disparado después de load) -->
+<script>
+  window.addEventListener("load", function () {
+    if (!window.profileData || !window.profileData.slug) return;
+
+    const params = new URLSearchParams(window.location.search);
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "profile_view",
+      profile_slug: window.profileData.slug,
+      profile_name: window.profileData.name,
+      profile_source: params.get("src") || "direct",
+      profile_card: params.get("card") || "profile",
+      profile_location: window.location.pathname
+    });
+  });
+</script>
+<!-- End profile_view event -->
+
+
+
   <!-- 🎨 Theme variables -->
 <style>
   :root {
     --bg-color: #ffffff;
-    --text-color: #111111;
-    --muted-text-color: #333333;
-    --button-bg: #000000;
+    --text-color: #ffffff;
+    --muted-text-color: #cccccc;
+    --button-bg: #1a1a1a;
     --button-text: #ffffff;
     --button-hover: #242424;
     --accent-color: #38bdf8;
@@ -33,7 +79,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/style.css" />
 
-  <!-- Google Analytics (opcional) -->
+  
   
 
   <!-- Meta Pixel (opcional) -->
@@ -42,6 +88,21 @@
 
 
 <body>
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTNSNWW2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+
+
   <div id="preloader"><img src="./assets/images/preloader.gif" alt="Cargando…" /></div>
 
 
@@ -66,12 +127,20 @@
   </main>
 
   <script>
-    window.addEventListener("load", function () {
-      const preloader = document.getElementById("preloader");
-      if (preloader) {
-        preloader.style.opacity = "0";
-        setTimeout(() => preloader.remove(), 300);
-      }
-    });
-  </script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (!preloader) return;
+
+    // ⏳ 1 segundo extra de branding
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+
+      setTimeout(() => {
+        preloader.remove();
+      }, 300);
+
+    }, 1000); // 1000ms = 1s extra
+  });
+</script>
+
 </body>

@@ -125,12 +125,20 @@
   </main>
 
   <script>
-    window.addEventListener("load", function () {
-      const preloader = document.getElementById("preloader");
-      if (preloader) {
-        preloader.style.opacity = "0";
-        setTimeout(() => preloader.remove(), 300);
-      }
-    });
-  </script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (!preloader) return;
+
+    // ⏳ 1 segundo extra de branding
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+
+      setTimeout(() => {
+        preloader.remove();
+      }, 300);
+
+    }, 1000); // 1000ms = 1s extra
+  });
+</script>
+
 </body>
