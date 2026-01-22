@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO por perfil -->
+  
+
   <title>comida</title>
 <meta name="description" content="catering">
 <meta name="keywords" content="digital food services">
@@ -13,16 +14,15 @@
 <meta property="og:image" content="./assets/images/">
 <meta property="og:type" content="profile">
 
-  <!-- exponer perfil al navegador -->
-<script>
-  window.profileData = {
-    slug: "daniela-catering",
-    name: "Daniela Espinosa"
-  };
-</script>
+  <script>
+    window.profileData = {
+      slug: "daniela-catering",
+      name: "Daniela Espinosa"
+    };
+  </script>
 
-
-  <!-- Google Tag Manager -->
+  {% if gtm_id %}
+<!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){
   w[l]=w[l]||[];
@@ -31,11 +31,13 @@
       j=d.createElement(s),
       dl=l!='dataLayer'?'&l='+l:'';
   j.async=true;
-  j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NTNSNWW2'+dl;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+dl;
   f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NTNSNWW2');
+})(window,document,'script','dataLayer','');
 </script>
 <!-- End Google Tag Manager -->
+{% endif %}
+
 
 <!-- 📊 profile_view event (disparado después de load) -->
 <script>
@@ -62,7 +64,7 @@
   <!-- 🎨 Theme variables -->
 <style>
   :root {
-    --bg-color: #0f0f0f;
+    --bg-color: #f18e8e;
     --text-color: #ffffff;
     --muted-text-color: #cccccc;
     --button-bg: #1a1a1a;
@@ -73,11 +75,17 @@
 </style>
 
 
+<script>
+  window.IS_ADMIN_PREVIEW = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+</script>
 
 
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/linktree-production/assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+  
 
 
 
@@ -93,15 +101,18 @@
 
 
 
+{% if gtm_id %}
 <!-- Google Tag Manager (noscript) -->
 <noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTNSNWW2"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id="
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"
+  ></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-
-
+{% endif %}
 
 
 
