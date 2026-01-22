@@ -21,22 +21,14 @@
     };
   </script>
 
-  {% if gtm_id %}
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){
-  w[l]=w[l]||[];
-  w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-  var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),
-      dl=l!='dataLayer'?'&l='+l:'';
-  j.async=true;
-  j.src='https://www.googletagmanager.com/gtm.js?id='+dl;
-  f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','');
-</script>
+  
+<!-- GTM (inyectado por build.py) -->
+
+
+
+<style>…</style>
 <!-- End Google Tag Manager -->
-{% endif %}
+
 
 
 <!-- 📊 profile_view event (disparado después de load) -->
@@ -64,7 +56,7 @@
   <!-- 🎨 Theme variables -->
 <style>
   :root {
-    --bg-color: #01010e;
+    --bg-color: #01011e;
     --text-color: #ffffff;
     --muted-text-color: #cccccc;
     --button-bg: #1a1a1a;
@@ -75,21 +67,14 @@
 </style>
 
 
-<script>
-  window.IS_ADMIN_PREVIEW = location.hostname === "127.0.0.1" || location.hostname === "localhost";
-</script>
-
-
 
   <!-- CSS -->
 <link rel="stylesheet" href="assets/css/style.css">
 
 
-  
 
 
-
-  
+   
   
 
   <!-- Meta Pixel (opcional) -->
@@ -101,18 +86,12 @@
 
 
 
-{% if gtm_id %}
+
 <!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe
-    src="https://www.googletagmanager.com/ns.html?id="
-    height="0"
-    width="0"
-    style="display:none;visibility:hidden"
-  ></iframe>
-</noscript>
+
+
 <!-- End Google Tag Manager (noscript) -->
-{% endif %}
+
 
 
 
@@ -128,11 +107,12 @@
 
       <h1>Manuel Pulido</h1>
       <h2>Abogado Fiscal</h2>
-      <p class="description">dfdfd</p>
+      <p class="description">testing cint</p>
     </section>
 
     <section class="links">
       <a class="link" href="https://fgjem.edomex.gob.mx/informes-gestion" target="_blank" rel="noopener">Consulta el informe fiscal</a>
+<a class="link" href="https://lasanadomicilio.com/" target="_blank" rel="noopener">Nuestros Servicios</a>
 
     </section>
   </main>
